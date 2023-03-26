@@ -14,9 +14,7 @@ try:
   master.set_timeout(5.0)
   master.set_verbose(True)
   print("connected")
-  
-  value = master.execute(3, cst.WRITE_MULTIPLE_REGISTERS , 0x2042, 1 , [0]) # 1 -> set servo on, 0 -> set Servo off
-  
+  value = master.execute(3, cst.READ_HOLDING_REGISTERS, 0x100C, 1)
   print(value)
   
 except modbus_tk.modbus.ModbusError as exc:
