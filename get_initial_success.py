@@ -14,9 +14,7 @@ try:
   master.set_timeout(5.0)
   master.set_verbose(True)
   print("connected")
-  value = master.execute(1, cst.READ_HOLDING_REGISTERS, 0x100C, 1)
-  print(value)
-  value = master.execute(1, cst.READ_HOLDING_REGISTERS, 0x1025, 1)
+  value = master.execute(1, cst.READ_HOLDING_REGISTERS, 0x1021, 1)
   print(value)
   master.close()
   

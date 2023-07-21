@@ -14,11 +14,11 @@ try:
   master.set_timeout(5.0)
   master.set_verbose(True)
   print("connected")
-  value = master.execute(1, cst.READ_HOLDING_REGISTERS, 0x100C, 1)
-  print(value)
-  value = master.execute(1, cst.READ_HOLDING_REGISTERS, 0x1025, 1)
-  print(value)
-  master.close()
   
+  value = master.execute(1, cst.WRITE_MULTIPLE_REGISTERS , 0x2041, 1 , [1]) # 1 -> set go to initial
+  
+  print(value)
+
+  master.close()
 except modbus_tk.modbus.ModbusError as exc:
   print("%s- Code=%d", exc, exc.get_exception_code())

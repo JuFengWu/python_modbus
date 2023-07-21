@@ -4,7 +4,7 @@ import modbus_tk
 import modbus_tk.defines as cst
 from modbus_tk import modbus_rtu
 
-PORT = "com14"
+PORT = "com4"
 
 logger = modbus_tk.utils.create_logger("console")
 
@@ -15,9 +15,10 @@ try:
   master.set_verbose(True)
   print("connected")
   
-  value = master.execute(3, cst.WRITE_MULTIPLE_REGISTERS , 0x2042, 1 , [0]) # 1 -> set servo on, 0 -> set Servo off
+  value = master.execute(1, cst.WRITE_MULTIPLE_REGISTERS , 0x2042, 1 , [1]) # 1 -> set servo on, 0 -> set Servo off
   
   print(value)
+  master.close()
   
 except modbus_tk.modbus.ModbusError as exc:
   print("%s- Code=%d", exc, exc.get_exception_code())
