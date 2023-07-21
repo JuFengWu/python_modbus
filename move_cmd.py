@@ -8,7 +8,7 @@ PORT = "com4"
 
 logger = modbus_tk.utils.create_logger("console")
 
-target = 10 #40mm
+target = 140 #140mm
 
 try:
   master = modbus_rtu.RtuMaster(serial.Serial(port=PORT, baudrate=38400, bytesize=8, parity='N', stopbits=1))
