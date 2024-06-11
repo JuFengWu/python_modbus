@@ -2,7 +2,7 @@ import serial
 import modbus_tk
 from modbus_tk import modbus_rtu
 import modbus_tk.defines as cst
-PORT = "COM1"
+PORT = "COM2"
 
 logger = modbus_tk.utils.create_logger("console")
 
